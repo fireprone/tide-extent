@@ -1,0 +1,9 @@
+#Pointer {
+  background: red;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 200px;
+  width: 10px;
+}
