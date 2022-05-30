@@ -1,7 +1,11 @@
 import './Pointer.css';
 
-const Pointer = () => {
-  return <div id='Pointer'></div>;
+const Pointer = ({ angle }) => {
+  return (
+    <div id='Pointer'>
+      <div id='pole' style={{ transform: `rotate(${angle}rad)` }}></div>
+    </div>
+  );
 };
 
 export default Pointer;
