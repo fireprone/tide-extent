@@ -2,7 +2,7 @@ import './Zone.css';
 
 const Zone = ({ angle, color, size }) => {
   return (
-    <div id='Zone'>
+    <div className='Zone'>
       <div
         className={`zone-${size}`}
         style={{ backgroundColor: color, transform: `rotate(${angle}rad)` }}

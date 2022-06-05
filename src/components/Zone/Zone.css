@@ -1,4 +1,4 @@
-#Zone {
+.Zone {
   position: absolute;
   left: 50%;
   height: 100%;
@@ -6,7 +6,7 @@
   z-index: -1;
 }
 
-#Zone div {
+.Zone div {
   height: 100%;
   transform-origin: bottom center;
 }
