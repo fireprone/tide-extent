@@ -1,9 +1,9 @@
+import { useState, useRef, useEffect } from 'react';
 import './Gauge.css';
 import Pointer from './../Pointer/Pointer';
-import { useState, useRef } from 'react';
 
 const Gauge = () => {
-  const [angle, setAngle] = useState(0);
+  const [pointerAngle, setPointerAngle] = useState(0);
   const gaugeRef = useRef(null);
 
   const updateAngle = (e) => {
@@ -11,12 +11,12 @@ const Gauge = () => {
     let x = e.clientX - rect.left - rect.width / 2;
     let y = e.clientY - rect.top - rect.width / 2;
 
-    setAngle(Math.atan2(y, x));
+    setPointerAngle(Math.atan2(x, -y));
   };
 
   return (
     <div id='Gauge' onMouseDown={updateAngle} ref={gaugeRef}>
-      <Pointer angle={angle} />
+      <Pointer angle={pointerAngle} />
     </div>
   );
 };

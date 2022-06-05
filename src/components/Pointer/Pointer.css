@@ -1,14 +1,14 @@
 #Pointer {
   position: absolute;
-  top: 97%;
   left: 50%;
-  transform: translate(0%, 0%);
+  bottom: 0;
+  transform: translate(-50%, 0);
 }
 
 #pole {
   background: red;
-  transform-origin: left;
+  transform-origin: bottom center;
   cursor: col-resize;
-  height: 10px;
-  width: 200px;
+  height: 200px;
+  width: 10px;
 }
