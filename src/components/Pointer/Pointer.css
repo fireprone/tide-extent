@@ -12,3 +12,14 @@
   height: 200px;
   width: 10px;
 }
+
+#hinge {
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  background-color: navy;
+  border-radius: 2rem;
+  z-index: 2;
+  left: -1.5rem;
+  bottom: -20%;
+}

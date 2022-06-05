@@ -5,7 +5,7 @@ import Zone from '../Zone/Zone';
 
 const Gauge = () => {
   const [pointerAngle, setPointerAngle] = useState(0);
-  const [zoneAngle, setZoneAngle] = useState(0);
+  const [targetAngle, setTargetAngle] = useState(0);
   const gaugeRef = useRef(null);
 
   const updateAngle = (e) => {
@@ -19,13 +19,15 @@ const Gauge = () => {
   const getRandomNumBetween = (min, max) => Math.random() * (max - min) + min;
 
   useEffect(() => {
-    setZoneAngle(getRandomNumBetween(-1.6, 1.6));
+    setTargetAngle(getRandomNumBetween(-1.6, 1.6));
   }, []);
 
   return (
     <div id='Gauge' onMouseDown={updateAngle} ref={gaugeRef}>
       <Pointer angle={pointerAngle} />
-      <Zone angle={zoneAngle} />
+      <Zone angle={targetAngle + 0.1} color='yellow' size='medium' />
+      <Zone angle={targetAngle - 0.1} color='yellow' size='medium' />
+      <Zone angle={targetAngle} color='orange' size='small' />
     </div>
   );
 };

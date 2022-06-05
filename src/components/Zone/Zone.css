@@ -1,15 +1,20 @@
 #Zone {
   position: absolute;
   left: 50%;
-  width: 2rem;
   height: 100%;
   transform: translate(-50%, 0);
   z-index: -1;
 }
 
 #Zone div {
-  width: 100%;
   height: 100%;
-  background-color: orange;
   transform-origin: bottom center;
+}
+
+.zone-medium {
+  width: 5rem;
+}
+
+.zone-small {
+  width: 2rem;
 }
