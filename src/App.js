@@ -4,7 +4,9 @@ import Gauge from './components/Gauge/Gauge';
 function App() {
   return (
     <div className='App'>
-      <Gauge />
+      <div id='GaugeContainer'>
+        <Gauge />
+      </div>
     </div>
   );
 }

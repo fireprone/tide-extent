@@ -7,4 +7,5 @@
   height: 300px;
   width: 600px;
   border-radius: 500px 500px 0 0;
+  clip-path: border-box;
 }
