@@ -8,6 +8,8 @@ const Gauge = ({
   setPointerAngle,
   targetAngle,
   setTargetAngle,
+  isHidden,
+  setIsHidden,
 }) => {
   const gaugeRef = useRef(null);
 
@@ -28,9 +30,13 @@ const Gauge = ({
   return (
     <div id='Gauge' onMouseDown={updateAngle} ref={gaugeRef}>
       <Pointer angle={pointerAngle} />
-      <Zone angle={targetAngle + 0.1} color='yellow' size='medium' />
-      <Zone angle={targetAngle - 0.1} color='yellow' size='medium' />
-      <Zone angle={targetAngle} color='orange' size='small' />
+      {!isHidden && (
+        <>
+          <Zone angle={targetAngle + 0.1} color='yellow' size='medium' />
+          <Zone angle={targetAngle - 0.1} color='yellow' size='medium' />
+          <Zone angle={targetAngle} color='orange' size='small' />
+        </>
+      )}
     </div>
   );
 };
