@@ -1,16 +1,9 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import './Gauge.css';
 import Pointer from './../Pointer/Pointer';
 import Zone from '../Zone/Zone';
 
-const Gauge = ({
-  pointerAngle,
-  setPointerAngle,
-  targetAngle,
-  setTargetAngle,
-  isHidden,
-  setIsHidden,
-}) => {
+const Gauge = ({ pointerAngle, setPointerAngle, targetAngle, isHidden }) => {
   const gaugeRef = useRef(null);
 
   const updateAngle = (e) => {
@@ -20,12 +13,6 @@ const Gauge = ({
 
     setPointerAngle(Math.atan2(x, -y));
   };
-
-  const getRandomNumBetween = (min, max) => Math.random() * (max - min) + min;
-
-  useEffect(() => {
-    setTargetAngle(getRandomNumBetween(-1.6, 1.6));
-  }, []);
 
   return (
     <div id='Gauge' onMouseDown={updateAngle} ref={gaugeRef}>

@@ -27,6 +27,10 @@ function App() {
     pointerAngle < targetAngle + distance;
 
   const verifyGuess = () => {
+    if (!isHidden) {
+      return;
+    }
+
     setIsHidden(false);
 
     if (withinRangeOf(0.1)) {
@@ -34,7 +38,17 @@ function App() {
     } else if (withinRangeOf(0.275)) {
       incrementPointsBy(1);
     }
+  };
 
+  const getRandomNumBetween = (min, max) => Math.random() * (max - min) + min;
+
+  const generateTargetAngle = () => {
+    setTargetAngle(getRandomNumBetween(-1.6, 1.6));
+  };
+
+  const endTurn = () => {
+    setIsHidden(true);
+    generateTargetAngle();
     setTurn(turn === 'pink' ? 'blue' : 'pink');
   };
 
@@ -46,14 +60,13 @@ function App() {
         pointerAngle={pointerAngle}
         setPointerAngle={setPointerAngle}
         targetAngle={targetAngle}
-        setTargetAngle={setTargetAngle}
         isHidden={isHidden}
-        setIsHidden={setIsHidden}
       />
       <button onClick={verifyGuess}>Submit guess</button>
       <button onClick={() => setIsHidden(!isHidden)}>
         {isHidden ? 'Show' : 'Hide'} target
       </button>
+      <button onClick={endTurn}>Next turn</button>
     </div>
   );
 }
