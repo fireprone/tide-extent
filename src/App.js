@@ -8,6 +8,7 @@ function App() {
   const [targetAngle, setTargetAngle] = useState(0);
   const [pinkScore, setPinkScore] = useState(0);
   const [blueScore, setBlueScore] = useState(0);
+  const [isHidden, setIsHidden] = useState(true);
   const [turn, setTurn] = useState('pink');
   let points, setPoints;
 
@@ -26,6 +27,8 @@ function App() {
     pointerAngle < targetAngle + distance;
 
   const verifyGuess = () => {
+    setIsHidden(false);
+
     if (withinRangeOf(0.1)) {
       incrementPointsBy(2);
     } else if (withinRangeOf(0.275)) {
@@ -44,8 +47,13 @@ function App() {
         setPointerAngle={setPointerAngle}
         targetAngle={targetAngle}
         setTargetAngle={setTargetAngle}
+        isHidden={isHidden}
+        setIsHidden={setIsHidden}
       />
       <button onClick={verifyGuess}>Submit guess</button>
+      <button onClick={() => setIsHidden(!isHidden)}>
+        {isHidden ? 'Show' : 'Hide'} target
+      </button>
     </div>
   );
 }
