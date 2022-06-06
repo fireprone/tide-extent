@@ -4,8 +4,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 300px;
-  width: 600px;
+  height: 12rem;
+  width: 24rem;
   border-radius: 500px 500px 0 0;
   clip-path: border-box;
 }

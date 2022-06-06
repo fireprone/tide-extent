@@ -1,11 +1,14 @@
-import { useState, useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import './Gauge.css';
 import Pointer from './../Pointer/Pointer';
 import Zone from '../Zone/Zone';
 
-const Gauge = () => {
-  const [pointerAngle, setPointerAngle] = useState(0);
-  const [targetAngle, setTargetAngle] = useState(0);
+const Gauge = ({
+  pointerAngle,
+  setPointerAngle,
+  targetAngle,
+  setTargetAngle,
+}) => {
   const gaugeRef = useRef(null);
 
   const updateAngle = (e) => {
